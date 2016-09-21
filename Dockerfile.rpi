@@ -10,4 +10,4 @@ chmod 600 /etc/ddclient/ddclient.conf
 USER ddclient
 
 #ENTRYPOINT ["/entrypoint.sh"]
-CMD ["ddclient","-daemon","300","-foreground","-verbose","-noquiet","-cache","/tmp/cache" ]
+CMD ["ddclient","-daemon","1200","-foreground","-verbose","-noquiet","-cache","/tmp/cache" ]

@@ -1,6 +1,7 @@
 clean:
 	docker rm -fv frjaraur/rpi-ddclient 2>/dev/null || true
 	docker rm -fv frjaraur/ddclient 2>/dev/null || true
+	docker rm -fv ddclient 2>/dev/null || true
 
 buildpi:
 	docker build -f Dockerfile.rpi -t frjaraur/rpi-ddclient .
@@ -9,14 +10,14 @@ build:
 	docker build -t frjaraur/ddclient .
 
 startpi:
-	docker run -d \
+	docker run -d -ti \
 	--name=ddclient \
 	--restart unless-stopped \
 	-v /home/zero/DOCKER/rpi-ddclient/ddclient.myconf:/etc/ddclient/ddclient.conf \
 	frjaraur/rpi-ddclient
 
 start:
-	docker run -d \
+	docker run -d -ti \
 	--name=ddclient \
 	--restart unless-stopped \
 	-v /home/zero/DOCKER/rpi-ddclient/ddclient.myconf:/etc/ddclient/ddclient.conf \
